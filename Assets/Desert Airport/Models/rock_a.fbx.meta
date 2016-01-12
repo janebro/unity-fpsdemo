@@ -1,0 +1,217 @@
+fileFormatVersion: 2
+guid: 17723c2f074197a4882601bee9eca599
+labels:
+- desert
+- plane
+- airport
+- mobile
+- asset
+- hardsurface
+- enviroment
+- enviro
+- rocks
+- stones
+- stone
+- tower
+- radio
+- hangar
+- hall
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Banana-Big.001
+    100004: Camera
+    100006: Cylinder
+    100008: jungle_tree_big_2
+    100010: Lamp
+    100012: Palm.002
+    100014: Plane
+    100016: rock_a
+    100018: rock_b
+    100020: rock_c
+    100022: ulica_blok_002
+    100024: ulica_blok_003
+    400000: //RootNode
+    400002: Banana-Big.001
+    400004: Camera
+    400006: Cylinder
+    400008: jungle_tree_big_2
+    400010: Lamp
+    400012: Palm.002
+    400014: Plane
+    400016: rock_a
+    400018: rock_b
+    400020: rock_c
+    400022: ulica_blok_002
+    400024: ulica_blok_003
+    2300000: //RootNode
+    2300002: Banana-Big.001
+    2300004: Cylinder
+    2300006: jungle_tree_big_2
+    2300008: Palm.002
+    2300010: Plane
+    2300012: rock_a
+    2300014: rock_b
+    2300016: rock_c
+    2300018: ulica_blok_002
+    2300020: ulica_blok_003
+    3300000: //RootNode
+    3300002: Banana-Big.001
+    3300004: Cylinder
+    3300006: jungle_tree_big_2
+    3300008: Palm.002
+    3300010: Plane
+    3300012: rock_a
+    3300014: rock_b
+    3300016: rock_c
+    3300018: ulica_blok_002
+    3300020: ulica_blok_003
+    4300000: rock_a
+    4300002: rock_c
+    4300004: rock_b
+    4300006: Cylinder
+    4300008: Plane
+    4300010: ulica_blok_002
+    4300012: ulica_blok_003
+    4300014: Banana-Big.001
+    4300016: Palm.002
+    4300018: jungle_tree_big_2
+    7400000: Default Take
+    7400002: rock_a|rock_a|Default Take|Layer0
+    7400004: rock_a|rock_a|Default Take|Layer0.001
+    7400006: rock_a|rock_b.001|Default Take|Layer0
+    7400008: rock_a|rock_b|Default Take|Layer0
+    7400010: rock_a|rock_c|Default Take|Layer0
+    7400012: rock_a|rock_e|Default Take|Layer0
+    7400014: rock_c|rock_a|Default Take|Layer0
+    7400016: rock_c|rock_a|Default Take|Layer0.001
+    7400018: rock_c|rock_b.001|Default Take|Layer0
+    7400020: rock_c|rock_b|Default Take|Layer0
+    7400022: rock_c|rock_c|Default Take|Layer0
+    7400024: rock_c|rock_e|Default Take|Layer0
+    7400026: rock_b|rock_a|Default Take|Layer0
+    7400028: rock_b|rock_a|Default Take|Layer0.001
+    7400030: rock_b|rock_b.001|Default Take|Layer0
+    7400032: rock_b|rock_b|Default Take|Layer0
+    7400034: rock_b|rock_c|Default Take|Layer0
+    7400036: rock_b|rock_e|Default Take|Layer0
+    7400038: Cylinder|rock_a|Default Take|Layer0
+    7400040: Cylinder|rock_a|Default Take|Layer0.001
+    7400042: Cylinder|rock_b.001|Default Take|Layer0
+    7400044: Cylinder|rock_b|Default Take|Layer0
+    7400046: Cylinder|rock_c|Default Take|Layer0
+    7400048: Cylinder|rock_e|Default Take|Layer0
+    7400050: Plane|rock_a|Default Take|Layer0
+    7400052: Plane|rock_a|Default Take|Layer0.001
+    7400054: Plane|rock_b.001|Default Take|Layer0
+    7400056: Plane|rock_b|Default Take|Layer0
+    7400058: Plane|rock_c|Default Take|Layer0
+    7400060: Plane|rock_e|Default Take|Layer0
+    7400062: ulica_blok_002|rock_a|Default Take|Layer0
+    7400064: ulica_blok_002|rock_a|Default Take|Layer0.001
+    7400066: ulica_blok_002|rock_b.001|Default Take|Layer0
+    7400068: ulica_blok_002|rock_b|Default Take|Layer0
+    7400070: ulica_blok_002|rock_c|Default Take|Layer0
+    7400072: ulica_blok_002|rock_e|Default Take|Layer0
+    7400074: ulica_blok_003|rock_a|Default Take|Layer0
+    7400076: ulica_blok_003|rock_a|Default Take|Layer0.001
+    7400078: ulica_blok_003|rock_b.001|Default Take|Layer0
+    7400080: ulica_blok_003|rock_b|Default Take|Layer0
+    7400082: ulica_blok_003|rock_c|Default Take|Layer0
+    7400084: ulica_blok_003|rock_e|Default Take|Layer0
+    7400086: Banana-Big.001|rock_a|Default Take|Layer0
+    7400088: Banana-Big.001|rock_a|Default Take|Layer0.001
+    7400090: Banana-Big.001|rock_b.001|Default Take|Layer0
+    7400092: Banana-Big.001|rock_b|Default Take|Layer0
+    7400094: Banana-Big.001|rock_c|Default Take|Layer0
+    7400096: Banana-Big.001|rock_e|Default Take|Layer0
+    7400098: Palm.002|rock_a|Default Take|Layer0
+    7400100: Palm.002|rock_a|Default Take|Layer0.001
+    7400102: Palm.002|rock_b.001|Default Take|Layer0
+    7400104: Palm.002|rock_b|Default Take|Layer0
+    7400106: Palm.002|rock_c|Default Take|Layer0
+    7400108: Palm.002|rock_e|Default Take|Layer0
+    7400110: jungle_tree_big_2|rock_a|Default Take|Layer0
+    7400112: jungle_tree_big_2|rock_a|Default Take|Layer0.001
+    7400114: jungle_tree_big_2|rock_b.001|Default Take|Layer0
+    7400116: jungle_tree_big_2|rock_b|Default Take|Layer0
+    7400118: jungle_tree_big_2|rock_c|Default Take|Layer0
+    7400120: jungle_tree_big_2|rock_e|Default Take|Layer0
+    7400122: Lamp|rock_a|Default Take|Layer0
+    7400124: Lamp|rock_a|Default Take|Layer0.001
+    7400126: Lamp|rock_b.001|Default Take|Layer0
+    7400128: Lamp|rock_b|Default Take|Layer0
+    7400130: Lamp|rock_c|Default Take|Layer0
+    7400132: Lamp|rock_e|Default Take|Layer0
+    7400134: Camera|rock_a|Default Take|Layer0
+    7400136: Camera|rock_a|Default Take|Layer0.001
+    7400138: Camera|rock_b.001|Default Take|Layer0
+    7400140: Camera|rock_b|Default Take|Layer0
+    7400142: Camera|rock_c|Default Take|Layer0
+    7400144: Camera|rock_e|Default Take|Layer0
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
