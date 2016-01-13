@@ -9,8 +9,9 @@ public class Shoot : MonoBehaviour {
 	void Update () {
         if (Input.GetButtonDown("Fire1"))
         {
-            Instantiate(bullet, transform.position, transform.rotation);
+            //Instantiate(bullet, transform.position, transform.rotation);
             GetComponent<AudioSource>().Play();
+			GetComponent<ParticleSystem>().Play ();
 
 			RaycastHit hit;
 			Ray ray = new Ray (transform.position, transform.forward);
