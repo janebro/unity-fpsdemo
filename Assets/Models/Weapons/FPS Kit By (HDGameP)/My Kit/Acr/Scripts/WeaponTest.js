@@ -2,12 +2,14 @@
 var fireLeftAnim : String = "Fire";
 var reloadAnim : String = "Reload";
 var animationGO : GameObject;
- 
+var drawClip : AudioClip;
+var reloadClip : AudioClip;
+  
 private var drawWeapon : boolean = false;
 private var reloading : boolean = false;
- 
+
 function Start (){
-DrawWeapon();
+	DrawWeapon();
 }
  
 function Update (){
@@ -32,7 +34,8 @@ function Fire(){
 function DrawWeapon() {
   if(drawWeapon)
     return;
-       
+    	GetComponent.<AudioSource>().clip = drawClip;
+       	GetComponent.<AudioSource>().Play();
         animationGO.GetComponent.<Animation>().Play(drawAnim);
         drawWeapon = true;
         yield WaitForSeconds(0.6);
@@ -41,8 +44,10 @@ function DrawWeapon() {
 }
  
 function Reloading(){
-     if(reloading) return;
-   
+     if(reloading) 
+     return;
+     	GetComponent.<AudioSource>().clip = reloadClip;
+       	GetComponent.<AudioSource>().Play();
         animationGO.GetComponent.<Animation>().Play(reloadAnim);
         reloading = true;
         yield WaitForSeconds(2.0);
