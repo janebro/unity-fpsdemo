@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Shoot : MonoBehaviour {
 
-    public GameObject bullet;
+    //public GameObject bullet;
 	public GameObject bulletHole;
 
 	void Update () {
@@ -11,7 +11,7 @@ public class Shoot : MonoBehaviour {
         {
             //Instantiate(bullet, transform.position, transform.rotation);
             GetComponent<AudioSource>().Play();
-			GetComponent<ParticleSystem>().Play();
+			GameObject.Find ("MuzzleSpot").GetComponent<ParticleSystem> ().Play ();
 
 			RaycastHit hit;
 			Ray ray = new Ray (transform.position, transform.forward);
