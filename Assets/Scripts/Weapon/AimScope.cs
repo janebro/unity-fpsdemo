@@ -23,17 +23,6 @@ public class AimScope : MonoBehaviour {
 	void Update ()
 	{
 
-        /*  if (Input.GetMouseButton(0))
-            Botão esquerdo do mouse.
-        
-            if (Input.GetMouseButton(1))
-            Botão direito do mouse.
-        
-            if (Input.GetMouseButton(2))
-            Botão do meio do mouse.
-         * 
-         */
-
         if (Input.GetMouseButton(1))
         {
             transform.localPosition = weaponScopePosition;
