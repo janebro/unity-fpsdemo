@@ -4,10 +4,11 @@ using System.Collections;
 public class WeaponAnimationsScript : MonoBehaviour {
 
     public string drawAnim, fireLeftAnim, reloadAnim;
+    public float drawCD, reloadCD, shootCD;
     public GameObject animationGO;
     public AudioClip drawClip, reloadClip;
 
-    public bool drawWeapon, reloading;
+    public bool drawWeapon, reloading, shooting;
 
 	// Use this for initialization
 	void Start () {
@@ -18,30 +19,37 @@ public class WeaponAnimationsScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetButtonDown("Fire1") && reloading == false && drawWeapon == false)
-        {
-            Fire();
-        }
+        //if (Input.GetButtonDown("Fire1") && reloading == false && drawWeapon == false)
+        //{
+        //    Fire();
+        //}
 
-        if (Input.GetKeyDown("r") && reloading == false && drawWeapon == false)
-        {
-            StartCoroutine(Reloading());
-        }
+        //if (Input.GetKeyDown("r") && reloading == false && drawWeapon == false)
+        //{
+        //    StartCoroutine(Reloading());
+        //}
 
-        if (Input.GetKeyDown("1") && reloading == false)
-        {
-            StartCoroutine("DrawWeapon");
-        }      
+        //if (Input.GetKeyDown("1") && reloading == false)
+        //{
+        //    StartCoroutine("DrawWeapon");
+        //}      
 	}
 
 
-    private void Fire()
+    public IEnumerator Fire()
     {
-        //animationGO.GetComponent.<Animation>().CrossFadeQueued(fireLeftAnim, 0.08, QueueMode.PlayNow);
-        animationGO.GetComponent<Animation>().CrossFadeQueued(fireLeftAnim, 0.08f, QueueMode.PlayNow); //Faz um 'crossfade' da última animação com a atual que queremos tocar.
+        if (!shooting)
+        {
+            animationGO.GetComponent<Animation>().CrossFadeQueued(fireLeftAnim, 0.08f, QueueMode.PlayNow); //Faz um 'crossfade' da última animação com a atual que queremos tocar.
+            shooting = true;
+            yield return new WaitForSeconds(shootCD);
+            shooting = false;
+        }
+        
+        
     }
 
-    private IEnumerator Reloading()
+    public IEnumerator Reloading()
     {
         if (!reloading)
         {
@@ -49,19 +57,19 @@ public class WeaponAnimationsScript : MonoBehaviour {
             GetComponent<AudioSource>().Play();
             animationGO.GetComponent<Animation>().Play(reloadAnim);
             reloading = true;
-            yield return new WaitForSeconds(3.8f);
+            yield return new WaitForSeconds(reloadCD);
             reloading = false;
         }
         
     }
 
-    private IEnumerator DrawWeapon()
+    public IEnumerator DrawWeapon()
     {
     	GetComponent<AudioSource>().clip = drawClip;
        	GetComponent<AudioSource>().Play();
         animationGO.GetComponent<Animation>().Play(drawAnim);
         drawWeapon = true;
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(drawCD);
         drawWeapon = false;
     }
 }
