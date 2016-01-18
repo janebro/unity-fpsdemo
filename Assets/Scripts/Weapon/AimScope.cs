@@ -3,7 +3,6 @@ using System.Collections;
 
 public class AimScope : MonoBehaviour {
 
-	public GameObject[] weapons;
 	public GameObject playerCAM;
 
     public Vector3 weaponScopePosition;
@@ -26,7 +25,7 @@ public class AimScope : MonoBehaviour {
         if (Input.GetMouseButton(1))
         {
             transform.localPosition = weaponScopePosition;
-            cam.fieldOfView = zoomAmount;
+            cam.fieldOfView = defaultFOV - zoomAmount;
         }
         else
         {
