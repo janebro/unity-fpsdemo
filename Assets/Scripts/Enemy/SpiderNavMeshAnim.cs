@@ -3,6 +3,8 @@ using System.Collections;
 
 public class SpiderNavMeshAnim : MonoBehaviour {
 
+    public GameObject attackGameObject;
+
     private Animator anim; //Referencia ao componente de animação.
     private NavMeshAgent agent; //Referencia ao componente NavMeshAgent.
     private EnemyStats enemyStats; //Referencia ao componente EnemyStats.
@@ -46,7 +48,7 @@ public class SpiderNavMeshAnim : MonoBehaviour {
                 anim.SetTrigger("Attacking"); //Ativa animação de ataque.
             }
 
-            if (enemyHealth >= 0)//Se a vida do inimigo for menor ou igual a 0, chama a animação de morrer.
+            if (enemyHealth <= 0)//Se a vida do inimigo for menor ou igual a 0, chama a animação de morrer.
             {
                 anim.SetTrigger("Dead"); 
             }
@@ -56,4 +58,13 @@ public class SpiderNavMeshAnim : MonoBehaviour {
         }
 
 	}
+
+    public void AttackTrigger(int value)
+    {
+        if(value == 1)
+            attackGameObject.SetActive(true);
+        else
+            attackGameObject.SetActive(false);
+        
+    }
 }
