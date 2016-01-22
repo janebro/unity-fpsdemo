@@ -90,6 +90,12 @@ public class SpiderNavMeshAnim : MonoBehaviour {
         anim.SetBool("Moving", false);
         dead = true;
         agent.speed = 0; //Seta a velocidade do agent pra zero, assim ele não fica nos seguindo depois de morrer.
+        NotifyWaveSystem(); //Notifica ao sistema de waves que essa unidade morreu.
         Destroy(gameObject, 2f); //Destroy o objeto depois de 2 segundos;
+    }
+
+    private void NotifyWaveSystem()
+    {
+        GameObject.FindGameObjectWithTag("WaveSystem").GetComponent<WaveSystem>().enemiesTotal--;
     }
 }

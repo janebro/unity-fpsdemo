@@ -12,11 +12,13 @@ public class SpawnEnemies : MonoBehaviour {
 
 
     private GameObject newEnemy;
+    private WaveSystem waveSys;
 
 	// Use this for initialization
 	void Start () {
         spawnTimer = spawnCD;
         enemiesAmount = enemiesWave;
+        waveSys = GetComponentInParent<WaveSystem>();
 	}
 	
 	// Update is called once per frame
@@ -46,6 +48,14 @@ public class SpawnEnemies : MonoBehaviour {
     {
         newEnemy = Instantiate(enemies[Random.Range(0, enemies.Length)]); //Instancia um novo objeto e guarda a referencia dele na variável newEnemy;
         newEnemy.transform.position = transform.position; //Atribui a posição do novo inimigo para a posição do objeto que esse script está adicionado.
+        //waveSys.enemiesAlive.Add(newEnemy);
+        waveSys.AddEnemy();
         enemiesAmount--; //Decrementa em uma unidade a quantidade de inimigos que devemos instanciar;
+    }
+
+    public void SetNextWave(int amount)//Prepara o spawner para a próxima wave.
+    {
+        enemiesWave = amount;
+        enemiesAmount = enemiesWave;
     }
 }
