@@ -8,6 +8,7 @@ public class SpiderNavMeshAnim : MonoBehaviour {
     private Animator anim; //Referencia ao componente de animação.
     private NavMeshAgent agent; //Referencia ao componente NavMeshAgent.
     private EnemyStats enemyStats; //Referencia ao componente EnemyStats.
+    private GroundChecker groundChk; //Referencia para o GroundChecker (O uso é explicado mais em baixo).
 
     private bool moving;
     private bool attacking;
@@ -21,6 +22,7 @@ public class SpiderNavMeshAnim : MonoBehaviour {
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         enemyStats = GetComponent<EnemyStats>();
+        groundChk = GetComponentInChildren<GroundChecker>();
 
         dead = false;    
         speed = enemyStats.speed;
@@ -30,8 +32,7 @@ public class SpiderNavMeshAnim : MonoBehaviour {
 	void Update () {
 
         if (agent.enabled && dead == false) //Todo o comportamento só pode ser iniciado se o component NavMeshAgent estiver enable, para evitar erros.
-        {
-            print("enabled" + Time.time);
+        {            
             if (agent.velocity != Vector3.zero) //Se a velocidade dele for diferente de zero.
             {
                 moving = true;
@@ -88,6 +89,7 @@ public class SpiderNavMeshAnim : MonoBehaviour {
         anim.SetTrigger("Dead");
         anim.SetBool("Moving", false);
         dead = true;
+        agent.speed = 0; //Seta a velocidade do agent pra zero, assim ele não fica nos seguindo depois de morrer.
         Destroy(gameObject, 2f); //Destroy o objeto depois de 2 segundos;
     }
 }
