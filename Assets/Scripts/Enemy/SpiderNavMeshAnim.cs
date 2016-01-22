@@ -10,11 +10,11 @@ public class SpiderNavMeshAnim : MonoBehaviour {
     private EnemyStats enemyStats; //Referencia ao componente EnemyStats.
 
     private bool moving;
+    private bool attacking;
+    private bool dead;
 
     private float speedBlend;
     private float speed;
-
-    private float enemyHealth;
 
 	// Use this for initialization
 	void Start () {
@@ -22,16 +22,16 @@ public class SpiderNavMeshAnim : MonoBehaviour {
         agent = GetComponent<NavMeshAgent>();
         enemyStats = GetComponent<EnemyStats>();
 
+        dead = false;    
         speed = enemyStats.speed;
-        enemyHealth = enemyStats.health;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-        if (agent.enabled) //Todo o comportamento só pode ser iniciado se o component NavMeshAgent estiver enable, para evitar erros.
+        if (agent.enabled && dead == false) //Todo o comportamento só pode ser iniciado se o component NavMeshAgent estiver enable, para evitar erros.
         {
-
+            print("enabled" + Time.time);
             if (agent.velocity != Vector3.zero) //Se a velocidade dele for diferente de zero.
             {
                 moving = true;
@@ -45,26 +45,49 @@ public class SpiderNavMeshAnim : MonoBehaviour {
             
             if (agent.remainingDistance - agent.stoppingDistance < 0) //Se a distancia restante menos a distancia de parada for negativa, ataque.
             {
+                attacking = true;
+                moving = false;
                 anim.SetTrigger("Attacking"); //Ativa animação de ataque.
             }
 
-            if (enemyHealth <= 0)//Se a vida do inimigo for menor ou igual a 0, chama a animação de morrer.
+            if (attacking == true) //Se tiver atacando, seta moving para falso. (Aqui é só relativo à animação, o objeto irá se locomover ainda).
             {
-                anim.SetTrigger("Dead"); 
+                anim.SetBool("Moving", false); //Seta a variável Moving no Animator desse componente para o valor de moving.
+                anim.SetFloat("Speed", speedBlend);//Seta a variável Speed no Animator desse componente para o valor de speedBlend.
+            }
+            else
+            {
+                anim.SetBool("Moving", moving); //Seta a variável Moving no Animator desse componente para o valor de moving.
+                anim.SetFloat("Speed", speedBlend);//Seta a variável Speed no Animator desse componente para o valor de speedBlend
             }
 
-            anim.SetBool("Moving", moving); //Seta a variável Moving no Animator desse componente para o valor de moving.
-            anim.SetFloat("Speed", speedBlend);//Seta a variável Speed no Animator desse componente para o valor de speedBlend.
+            if (enemyStats.health <= 0)//Se a vida do inimigo for menor ou igual a 0, chama a animação de morrer.
+            {
+                SpiderDeath();
+            }
+
         }
 
 	}
 
-    public void AttackTrigger(int value)
+    public void AttackTrigger(int value)//Essa função será chamada no evento da animação. Se for 1, ativa o componente para fazer a colisão com o jogador, se for 0 desativa.
     {
         if(value == 1)
+        {
             attackGameObject.SetActive(true);
+        }
         else
+        {
+            attacking = false;
             attackGameObject.SetActive(false);
-        
+        }   
+    }
+
+    private void SpiderDeath()
+    {
+        anim.SetTrigger("Dead");
+        anim.SetBool("Moving", false);
+        dead = true;
+        Destroy(gameObject, 2f); //Destroy o objeto depois de 2 segundos;
     }
 }
