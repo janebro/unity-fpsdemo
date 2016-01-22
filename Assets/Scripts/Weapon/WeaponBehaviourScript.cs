@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI; // para poder ter acesso aos elementos de UI.
 
 public class WeaponBehaviourScript : MonoBehaviour {
 
@@ -8,6 +9,9 @@ public class WeaponBehaviourScript : MonoBehaviour {
     public AudioClip fireSound, magEmpty;
     public GameObject bulletHole;
     public WeaponAnimationsScript animationsRef;
+
+	public Text balaText; // quantidade de balas mostrada no hud; 
+	public Text penteText; // quantidade de pentes mostrada no hud;
 
     public GameObject muzzleSpot;
     public LayerMask mask; //Uma layermask. Tudo que tiver selecionado no Inspector vai ser ignorado.
@@ -69,4 +73,16 @@ public class WeaponBehaviourScript : MonoBehaviour {
             StartCoroutine(animationsRef.DrawWeapon());
         }
     }
+
+	void LateUpdate()
+	{
+		hudControler ();
+	}
+
+	private void hudControler() //seta a quantidade de balas/pentes no objeto de texto
+	{
+		balaText.text = "" + currentBullets.ToString(); 
+		penteText.text = "" + currentMags.ToString();
+	}
+
 }
