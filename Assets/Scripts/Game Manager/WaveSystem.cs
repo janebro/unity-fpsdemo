@@ -12,8 +12,12 @@ public class WaveSystem : MonoBehaviour {
     public int waveIndex; //Um índice para sabermos em que waves estamos.
 
     public bool endGame;
+
+    private GameManager GM; //GameManager referência.
+
 	// Use this for initialization
 	void Start () {
+        GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         timeBetweenWavesCount = timeBetweenWaves;
         waveIndex = -1; //Começa em -1, pois temos um incremento logo no começo. Sem isso, iriamos começar da wave numero 2.
         endGame = false;
@@ -28,14 +32,15 @@ public class WaveSystem : MonoBehaviour {
 
             if (timeBetweenWavesCount < 0) //Hora de spawnar a próxima wave.
             {
-                if (waveIndex + 1 <= EnemiesPerSpawner.Length) //Se não estivermos na última wave, chama a próxima wave, se não, termina o jogo.
+                if (waveIndex + 1 < EnemiesPerSpawner.Length) //Se não estivermos na última wave, chama a próxima wave, se não, termina o jogo.
                 {
                     waveIndex++;
                     StartTheSpawners();
                 }
                 else
                 {
-                    endGame = true;
+                    endGame = true; //Ganhou a partida.
+                    GM.YouWin();
                 }
 
                 timeBetweenWavesCount = timeBetweenWaves;
