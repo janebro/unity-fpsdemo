@@ -9,7 +9,7 @@ public class EnemyStats : MonoBehaviour {
     public bool grounded; //Booleana para indicar se o objeto está no chão ou não;
     public GroundChecker groundChk;
 
-    private NavMeshAgent agent; //Referência para o componente NavMeshAgent.
+    private UnityEngine.AI.NavMeshAgent agent; //Referência para o componente NavMeshAgent.
     private Rigidbody rBody;
 
     //NavMeshParameters
@@ -22,7 +22,7 @@ public class EnemyStats : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>(); //Adiciona a referencia para o componente NavMeshAgent.
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>(); //Adiciona a referencia para o componente NavMeshAgent.
         rBody = GetComponent<Rigidbody>();
         NavMeshAgentReconfig();
         grounded = false;

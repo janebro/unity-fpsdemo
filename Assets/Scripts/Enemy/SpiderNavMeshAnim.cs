@@ -6,7 +6,7 @@ public class SpiderNavMeshAnim : MonoBehaviour {
     public GameObject attackGameObject;
 
     private Animator anim; //Referencia ao componente de animação.
-    private NavMeshAgent agent; //Referencia ao componente NavMeshAgent.
+    private UnityEngine.AI.NavMeshAgent agent; //Referencia ao componente NavMeshAgent.
     private EnemyStats enemyStats; //Referencia ao componente EnemyStats.
     private GroundChecker groundChk; //Referencia para o GroundChecker (O uso é explicado mais em baixo).
 
@@ -20,7 +20,7 @@ public class SpiderNavMeshAnim : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         anim = GetComponent<Animator>();
-        agent = GetComponent<NavMeshAgent>();
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         enemyStats = GetComponent<EnemyStats>();
         groundChk = GetComponentInChildren<GroundChecker>();
 

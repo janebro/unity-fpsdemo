@@ -5,11 +5,11 @@ public class NavMeshAgentTest : MonoBehaviour {
 
 
     public Transform goal;
-    private NavMeshAgent agent;
+    private UnityEngine.AI.NavMeshAgent agent;
 
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         agent.destination = goal.position;
         agent.speed = 10f;
     }
